@@ -14,6 +14,15 @@ function getInputValue(inputId){
     return amountValue;
 }
 
+function updateTotalField(totalFieldId, amount){
+    const totalElement = document.getElementById(totalFieldId);
+    const TotalText = totalElement.innerText;
+    const previousTotal = parseFloat(TotalText);
+
+    totalElement.innerText = previousTotal + amount;
+
+}
+
 
 
 
@@ -24,12 +33,14 @@ document.getElementById('deposit-button').addEventListener('click', function(){
 
     const depositAmount = getInputValue('deposit-input');
 
-    //get current deposit
-    const depositTotal = document.getElementById('deposit-total');
+    //get and update depsit total
+    /* const depositTotal = document.getElementById('deposit-total');
     const depositTotalText = depositTotal.innerText;
     const previousDepositTotal = parseFloat(depositTotalText);
 
-    depositTotal.innerText = previousDepositTotal + depositAmount;
+    depositTotal.innerText = previousDepositTotal + depositAmount; */
+
+    updateTotalField('deposit-total', depositAmount);
 
     //update balance
     const balanceTotal = document.getElementById('balance-total');
@@ -50,12 +61,14 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
     const withdrawAmount = getInputValue('withdraw-input');
 
 
-    //update withdraw total
-    const withdrawTotal = document.getElementById('withdraw-total');
+    //update and update withdraw total
+    /* const withdrawTotal = document.getElementById('withdraw-total');
     const withdrawTotalText = withdrawTotal.innerText;
     const previousWithdrawTotal = parseFloat(withdrawTotalText);
 
-    withdrawTotal.innerText = previousWithdrawTotal + withdrawAmount;
+    withdrawTotal.innerText = previousWithdrawTotal + withdrawAmount; */
+
+    updateTotalField('withdraw-total', withdrawAmount);
 
 
     //update balance after withdraw
